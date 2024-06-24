@@ -25,14 +25,18 @@ namespace CookBook.Repository
             await _dbCollection.InsertOneAsync(obj);
         }
 
-        public async Task Delete(ObjectId id)
+        public async Task Delete(string id)
         {
-            await _dbCollection.DeleteOneAsync(Builders<TEntity>.Filter.Eq("_id", id));
+            var objId = new ObjectId(id);
+
+            await _dbCollection.DeleteOneAsync(Builders<TEntity>.Filter.Eq("_id", objId));
         }
 
-        public async Task<TEntity> Get(ObjectId id)
+        public async Task<TEntity> Get(string id)
         {
-            FilterDefinition<TEntity> filter = Builders<TEntity>.Filter.Eq("_id", id);
+            var objId = new ObjectId(id);
+
+            FilterDefinition<TEntity> filter = Builders<TEntity>.Filter.Eq("_id", objId);
 
             return await _dbCollection.FindAsync(filter).Result.FirstOrDefaultAsync();
         }

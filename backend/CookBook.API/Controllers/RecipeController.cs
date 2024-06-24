@@ -23,7 +23,7 @@ namespace CookBook.API.Controllers
         }
 
         [HttpGet("{id}", Name = "GetRecipe")]
-        public async Task<ActionResult<Recipe>> Get(ObjectId id)
+        public async Task<ActionResult<Recipe>> Get(string id)
         {
             var recipe = await _recipeRepository.Get(id);
 
@@ -41,6 +41,21 @@ namespace CookBook.API.Controllers
             await _recipeRepository.Create(recipe);
 
             return CreatedAtRoute("GetRecipe", new { id = recipe.Id.ToString() }, recipe);
+        }
+
+        [HttpDelete("{id}", Name = "DeleteRecipe")]
+        public async Task<ActionResult<Recipe>> Delete(string id)
+        {
+            var recipe = await _recipeRepository.Get(id);
+
+            if (recipe == null)
+            {
+                return NotFound();
+            }
+
+            await _recipeRepository.Delete(id);
+
+            return recipe;
         }
     }
 }

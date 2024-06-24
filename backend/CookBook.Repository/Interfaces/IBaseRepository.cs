@@ -1,14 +1,13 @@
 ﻿using CookBook.Models;
-using MongoDB.Bson;
 
 namespace CookBook.Repository
 {
     public interface IBaseRepository<TEntity> where TEntity : Entity
     {
         Task Create(TEntity obj);
-        Task Delete(ObjectId id);
+        Task Delete(string id);
         Task<List<TEntity>> Get();
-        Task<TEntity> Get(ObjectId id);
+        Task<TEntity> Get(string id);
         Task Update(TEntity obj);
     }
 }

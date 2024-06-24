@@ -6,7 +6,7 @@ namespace CookBook.Models
     {
         public bool UseAmericanUnits;
         public bool UseSpoons;
-        public ObjectId[] FavouriteRecipes { get; set; } = Array.Empty<ObjectId>();
+        public string[] FavouriteRecipes { get; set; } = Array.Empty<string>();
         public IngredientList[] IngredientLists { get; set; } = Array.Empty<IngredientList>();
     }
 }
