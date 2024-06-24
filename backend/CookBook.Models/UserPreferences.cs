@@ -1,9 +1,6 @@
-﻿using MongoDB.Bson;
-
-namespace CookBook.Models
+﻿namespace CookBook.Models
 {
-    public class UserPreferences : Entity
-    {
+    public class UserPreferences : Entity {
         public bool UseAmericanUnits;
         public bool UseSpoons;
         public string[] FavouriteRecipes { get; set; } = Array.Empty<string>();

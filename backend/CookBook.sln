@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookBook.API", "CookBook.API.csproj", "{3720CA23-A265-4E0C-B686-F0FB1A846A45}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookBook.API", "CookBook.API\CookBook.API.csproj", "{3720CA23-A265-4E0C-B686-F0FB1A846A45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookBook.Repository", "..\CookBook.Repository\CookBook.Repository.csproj", "{9B5D5459-4247-42AC-B42A-48FDC2455964}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookBook.Repository", "CookBook.Repository\CookBook.Repository.csproj", "{9B5D5459-4247-42AC-B42A-48FDC2455964}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookBook.Models", "..\CookBook.Models\CookBook.Models.csproj", "{5E5D7982-91F3-4B53-9E4A-862A71474A47}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookBook.Models", "CookBook.Models\CookBook.Models.csproj", "{5E5D7982-91F3-4B53-9E4A-862A71474A47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,14 +1,11 @@
-﻿namespace CookBook.Models
-{
-    public enum RecipeType
-    {
+﻿namespace CookBook.Models {
+    public enum RecipeType {
         Meaty,
         Vegetarian,
         Vegan,
     }
 
-    public class Recipe : Entity
-    {
+    public class Recipe : Entity {
         public string Name { get; set; } = "";
         public string Description { get; set; } = "";
         public RecipeType Type { get; set; }

@@ -1,7 +1,5 @@
-﻿namespace CookBook.Models
-{
-    public enum IngredientType
-    {
+﻿namespace CookBook.Models {
+    public enum IngredientType {
         Other,
         Vegetable,
         Fruit,
@@ -17,8 +15,7 @@
         Sweets,
     }
 
-    public class Ingredient
-    {
+    public class Ingredient {
         public string Name { get; set; } = "";
         public string Description { get; set; } = "";
         public IngredientType Type { get; set; }
