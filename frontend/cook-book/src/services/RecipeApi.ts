@@ -3,7 +3,7 @@ import { Recipe } from "../Models/Recipe";
 
 export async function getRecipes(): Promise<Recipe[]> {
     return new Promise((resolve, reject) => {
-        axios.get("api/recipe", {}).then((response) => {
+        axios.get(`${process.env.REACT_APP_RECIPE_API}`, {}).then((response) => {
             resolve(response.data as Recipe[]);
         }, (err) => {
             reject(err);
@@ -13,7 +13,7 @@ export async function getRecipes(): Promise<Recipe[]> {
 
 export async function getRecipe(id: string): Promise<Recipe[]> {
     return new Promise((resolve, reject) => {
-        axios.get(`api/recipe/${id}`, {}).then((response) => {
+        axios.get(`${process.env.REACT_APP_RECIPE_API}/${id}`, {}).then((response) => {
             resolve(response.data as Recipe[]);
         }, (err) => {
             reject(err);
@@ -23,7 +23,7 @@ export async function getRecipe(id: string): Promise<Recipe[]> {
 
 export async function createRecipe(recipe: Recipe): Promise<Recipe[]> {
     return new Promise((resolve, reject) => {
-        axios.post("api/recipe", recipe, {}).then((response) => {
+        axios.post(`${process.env.REACT_APP_RECIPE_API}`, recipe, {}).then((response) => {
             resolve(response.data as Recipe[]);
         }, (err) => {
             reject(err);
@@ -33,7 +33,7 @@ export async function createRecipe(recipe: Recipe): Promise<Recipe[]> {
 
 export async function deleteRecipe(id: string): Promise<Recipe[]> {
     return new Promise((resolve, reject) => {
-        axios.delete(`api/recipe/${id}`, {}).then((response) => {
+        axios.delete(`${process.env.REACT_APP_RECIPE_API}/${id}`, {}).then((response) => {
             resolve(response.data as Recipe[]);
         }, (err) => {
             reject(err);

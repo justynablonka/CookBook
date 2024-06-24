@@ -2,7 +2,7 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import { getRecipes } from './Services/RecipeApi';
 import { Recipe } from './Models/Recipe';
-import { RecipePanel } from './components/RecipePanel';
+import { RecipePanel } from './Components/RecipePanel';
 
 function App() {
     const [recipes, setRecipes] = useState<Recipe[]>([]);
