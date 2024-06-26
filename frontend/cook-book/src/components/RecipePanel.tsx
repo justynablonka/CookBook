@@ -1,6 +1,9 @@
-import React from "react";
+import { useContext } from "react";
 import { Recipe } from "../Models/Recipe";
 import { Ingredient } from "../Models/Ingredient";
+import { RecipesContext } from "../App";
+
+import styles from "./RecipePanel.module.css";
 
 interface RecipeProps {
     recipe: Recipe
@@ -8,8 +11,10 @@ interface RecipeProps {
 
 export function RecipePanel(props: RecipeProps) {
 
+    const {recipes, setRecipes} = useContext(RecipesContext);
+
     return (
-        <div className="recipe">
+        <div className={styles.recipe}>
             <p>{props.recipe.name}</p>
             <p>{props.recipe.description}</p>
             <p>{props.recipe.type}</p>

@@ -4,6 +4,16 @@ import { getRecipes } from './Services/RecipeApi';
 import { Recipe } from './Models/Recipe';
 import { RecipePanel } from './Components/RecipePanel';
 
+export type RecipesContent = {
+    recipes: Recipe[],
+    setRecipes: (x: Recipe[]) => void
+}
+
+export const RecipesContext = React.createContext<RecipesContent>({
+    recipes: [],
+    setRecipes: () => {}
+});
+
 function App() {
     const [recipes, setRecipes] = useState<Recipe[]>([]);
 
@@ -16,18 +26,20 @@ function App() {
 
     return (
         <div className="App">
-        <header className="App-header">
-            <p>All recipes</p>
-            {
-                recipes.map((recipe: Recipe, i: number) => {
-                    return (
-                        <div key={i}>
-                            <RecipePanel recipe={recipe}/>
-                        </div>
-                    )
-                })
-            }
-        </header>
+            <RecipesContext.Provider value={{ recipes, setRecipes }}>
+                <header className="App-header">
+                    <p>All recipes</p>
+                    {
+                        recipes!.map((recipe: Recipe, i: number) => {
+                            return (
+                                <div key={i}>
+                                    <RecipePanel recipe={recipe}/>
+                                </div>
+                            )
+                        })
+                    }
+                </header>
+            </RecipesContext.Provider>
         </div>
     );
 }
