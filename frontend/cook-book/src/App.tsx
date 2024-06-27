@@ -2,7 +2,10 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import { getRecipes } from './Services/RecipeApi';
 import { Recipe } from './Models/Recipe';
-import { RecipePanel } from './Components/RecipePanel';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HomePage } from './Components/HomePage';
+import { RecipePage } from './Components/RecipePage';
+import { AddRecipePage } from './Components/AddRecipePage';
 
 export type RecipesContent = {
     recipes: Recipe[],
@@ -22,24 +25,20 @@ function App() {
             .then((recipes) => {
                 setRecipes(recipes);
             });
+            // we could get a list of ingredients as well for using when adding new recipes
     });
 
     return (
         <div className="App">
-            <RecipesContext.Provider value={{ recipes, setRecipes }}>
-                <header className="App-header">
-                    <p>All recipes</p>
-                    {
-                        recipes!.map((recipe: Recipe, i: number) => {
-                            return (
-                                <div key={i}>
-                                    <RecipePanel recipe={recipe}/>
-                                </div>
-                            )
-                        })
-                    }
-                </header>
-            </RecipesContext.Provider>
+            <BrowserRouter>
+                <RecipesContext.Provider value={{ recipes, setRecipes }}>
+                    <Routes>
+                        <Route index element={<HomePage/>}/>
+                        <Route path="/recipes/new" element={<AddRecipePage/>}/>
+                        <Route path="/recipes/:id" element={<RecipePage/>}/>
+                    </Routes>
+                </RecipesContext.Provider>
+            </BrowserRouter>
         </div>
     );
 }

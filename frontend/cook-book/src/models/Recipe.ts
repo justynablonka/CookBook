@@ -7,6 +7,7 @@ export enum RecipeType {
 }
 
 export interface Recipe {
+    id: string,
     name: string,
     description: string,
     type: RecipeType,

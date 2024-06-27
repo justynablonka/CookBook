@@ -4,14 +4,13 @@ import { Ingredient } from "../Models/Ingredient";
 import { RecipesContext } from "../App";
 
 import styles from "./RecipePanel.module.css";
+import { TopBar } from "./TopBar";
 
 interface RecipeProps {
     recipe: Recipe
 }
 
 export function RecipePanel(props: RecipeProps) {
-
-    const {recipes, setRecipes} = useContext(RecipesContext);
 
     return (
         <div className={styles.recipe}>
