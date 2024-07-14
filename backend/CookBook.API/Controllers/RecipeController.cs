@@ -1,5 +1,6 @@
 ﻿using CookBook.Models;
 using CookBook.Repository;
+using CookBook.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CookBook.API.Controllers {
@@ -7,9 +8,13 @@ namespace CookBook.API.Controllers {
     [ApiController]
     public class RecipeController : ControllerBase {
         private readonly IBaseRepository<Recipe> _recipeRepository;
+        private readonly IRecipeService _recipeService;
 
-        public RecipeController(IBaseRepository<Recipe> recipeRepository) {
+        private static readonly string imageLocation = "C:/cookBookImages";
+
+        public RecipeController(IBaseRepository<Recipe> recipeRepository, IRecipeService recipeService) {
             _recipeRepository = recipeRepository;
+            _recipeService = recipeService;
         }
 
         [HttpGet]
@@ -21,8 +26,7 @@ namespace CookBook.API.Controllers {
         public async Task<ActionResult<Recipe>> Get(string id) {
             var recipe = await _recipeRepository.Get(id);
 
-            if (recipe == null)
-            {
+            if (recipe == null) {
                 return NotFound();
             }
 
@@ -36,12 +40,21 @@ namespace CookBook.API.Controllers {
             return CreatedAtRoute("GetRecipe", new { id = recipe.Id.ToString() }, recipe);
         }
 
+        [HttpPost("{id}")]
+        public async Task<ActionResult> UploadImage(string id, [FromForm] IFormFile file) {
+            var result = await _recipeService.UploadImage(id, file, imageLocation);
+            if (result) {
+                return Ok();
+            } else {
+                return NotFound();
+            }
+        }
+
         [HttpDelete("{id}", Name = "DeleteRecipe")]
         public async Task<ActionResult<Recipe>> Delete(string id) {
             var recipe = await _recipeRepository.Get(id);
 
-            if (recipe == null)
-            {
+            if (recipe == null) {
                 return NotFound();
             }
 

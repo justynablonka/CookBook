@@ -41,7 +41,9 @@ namespace CookBook.Repository {
         }
 
         public async Task Update(TEntity obj) {
-            await _dbCollection.ReplaceOneAsync(Builders<TEntity>.Filter.Eq("_id", obj.Id), obj);
+            var objId = new ObjectId(obj.Id);
+
+            await _dbCollection.ReplaceOneAsync(Builders<TEntity>.Filter.Eq("_id", objId), obj);
         }
     }
 }
