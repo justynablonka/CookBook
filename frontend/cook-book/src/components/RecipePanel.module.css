@@ -1,3 +1,5 @@
-.recipe {
+.recipeContainer {
     display: inline;
+    text-align: left;
+    padding: 20px;
 }

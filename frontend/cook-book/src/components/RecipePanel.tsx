@@ -2,9 +2,7 @@ import { useContext } from "react";
 import { Recipe } from "../Models/Recipe";
 import { Ingredient } from "../Models/Ingredient";
 import { RecipesContext } from "../App";
-
 import styles from "./RecipePanel.module.css";
-import { TopBar } from "./TopBar";
 
 interface RecipeProps {
     recipe: Recipe
@@ -13,9 +11,9 @@ interface RecipeProps {
 export function RecipePanel(props: RecipeProps) {
 
     return (
-        <div className={styles.recipe}>
-            <p>{props.recipe.name}</p>
-            <p>{props.recipe.description}</p>
+        <div className={styles.recipeContainer}>
+            <h1>{props.recipe.name}</h1>
+            <h2>{props.recipe.description}</h2>
             <p>{props.recipe.type}</p>
             {
                 props.recipe.tags.map((tag: string, i: number) => {

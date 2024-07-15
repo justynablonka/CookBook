@@ -1,0 +1,92 @@
+.addRecipePage {
+ /* background: #000;
+ color: white; */
+}
+
+.addRecipeForm {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.smallContainer {
+    margin: 5px;
+}
+
+.smallContainer button {
+    margin: 5px;
+    cursor: pointer;
+}
+
+.smallContainer select {
+    padding: 5px;
+}
+
+.tagContainer {
+    position: static;
+}
+
+.tagDiv {
+    position: absolute;
+}
+
+.tag {
+    position: absolute;
+    border: 1px solid blue;
+    background-color: lightblue;
+    border-radius: 10px;
+    padding: 5px;
+    width: 50px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.removeButton {
+    position: relative;
+    top: 5px;
+    left: 50px;
+    font-size: 10px;
+    display: none;
+}
+
+.tag:hover + .removeButton {
+    display: block;
+}
+
+.addRecipeButton {
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.addRecipeButton:hover,
+.addRecipeButton:focus {
+  background-color: #F082AC;
+}
+
+.preview img {
+    width: 50px;
+    height: auto;
+}

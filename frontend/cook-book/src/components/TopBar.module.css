@@ -1,0 +1,31 @@
+.topBarContainer {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.topBar {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.searchContainer {
+  width: 400px;
+}
+
+.searchContainer:not(:focus-within) ul {
+  display: none;
+}
+
+.searchBox {
+  border-radius: 30px;
+}
+
+.homeLink {
+  color: #000;
+  text-decoration: none;
+}
